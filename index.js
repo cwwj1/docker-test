@@ -41,7 +41,7 @@ http.createServer(async (req, res) => {
         deleteFolderRecursive(projectDir)
 
         // 拉取仓库最新代码
-        execSync(`git clone https://github.com/yeyan1996/${data.repository.name}.git ${projectDir}`, {
+        execSync(`git clone https://github.com/cwwj1/${data.repository.name}.git ${projectDir}`, {
             stdio: 'inherit',
         })
 
@@ -55,7 +55,7 @@ http.createServer(async (req, res) => {
         // 创建 docker 镜像
         execSync(`docker build -t ${data.repository.name}-image:latest .`, {
             stdio: 'inherit',
-            cwd: projectDir
+            // cwd: projectDir
         })
 
         // // 拉取 docker 镜像
