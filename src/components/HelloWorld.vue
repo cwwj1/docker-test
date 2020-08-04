@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}, love you</h1>
+    <h1>{{ msg }}, Happy birthday, love you.</h1>
   </div>
 </template>
 
