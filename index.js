@@ -22,11 +22,9 @@ const resolvePost = req =>
     new Promise(resolve => {
         let chunk = "";
         req.on("data", data => {
-            // console.log('---req on data---', data);
             chunk += data;
         });
         req.on("end", () => {
-            console.log('---req on end---', chunk);
             resolve(JSON.parse(chunk));
         });
     });
@@ -36,7 +34,6 @@ http.createServer(async (req, res) => {
     console.log(req.url)
     if (req.method === 'POST' && req.url === '/') {
         const data = await resolvePost(req);
-        console.log('---最终data---', data);
         const projectDir = path.resolve(__dirname,`./${data.repository.name}`)
         deleteFolderRecursive(projectDir)
 
@@ -51,13 +48,11 @@ http.createServer(async (req, res) => {
         // 复制 .dockerignore 到项目目录
         fs.copyFileSync(path.resolve(__dirname,`./.dockerignore`), path.resolve(projectDir, './.dockerignore'))
 
-        // 进入项目目录
-        execSync(`cd ${data.repository.name}`)
 
         // 创建 docker 镜像
         execSync(`docker build -t ${data.repository.name}-image:latest .`, {
             stdio: 'inherit',
-            // cwd: projectDir
+            cwd: projectDir
         })
 
         // // 拉取 docker 镜像
@@ -78,7 +73,7 @@ http.createServer(async (req, res) => {
 
         console.log('deploy success')
     }
-    res.end('3000 ok')
+    res.end('ok')
 }).listen(3000, () => {
     console.log('server is ready')
 })
