@@ -22,11 +22,11 @@ const resolvePost = req =>
     new Promise(resolve => {
         let chunk = "";
         req.on("data", data => {
-            console.log('---req on data---', data);
+            // console.log('---req on data---', data);
             chunk += data;
         });
         req.on("end", () => {
-            console.log('---req on end---');
+            console.log('---req on end---', chunk);
             resolve(JSON.parse(chunk));
         });
     });
