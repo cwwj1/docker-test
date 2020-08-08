@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img class="image" alt="dear" src="https://i.ibb.co/hDY0jHp/Wechat-IMG56.jpg">
+    <!-- <img class="image" alt="dear" src="https://i.ibb.co/hDY0jHp/Wechat-IMG56.jpg"> -->
     <HelloWorld msg="HJH"/>
   </div>
 </template>
