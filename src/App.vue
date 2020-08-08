@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <!-- <img class="image" alt="dear" src="https://i.ibb.co/hDY0jHp/Wechat-IMG56.jpg"> -->
     <HelloWorld msg="HJH"/>
   </div>
 </template>
@@ -26,8 +25,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  background: pink;
+  color: white;
+  background: #555;
   width: 100vw;
   height: 100vh;
   display: flex;
