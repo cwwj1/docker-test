@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}, Happy birthday, love you.</h1>
+    <h1>{{ msg }}, do you know i love you?</h1>
   </div>
 </template>
 
@@ -17,6 +17,9 @@ export default {
 <style scoped>
 h3 {
   margin: 40px 0 0;
+}
+h1 {
+  margin: 0;
 }
 ul {
   list-style-type: none;
